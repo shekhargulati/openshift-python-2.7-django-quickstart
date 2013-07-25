@@ -136,7 +136,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = ('templates')
+TEMPLATE_DIRS = ('/var/lib/openshift/51f0b96b4382ecfc1d000111/app-root/runtime/repo/wsgi/openshift/templates')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
