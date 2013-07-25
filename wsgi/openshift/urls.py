@@ -18,9 +18,13 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-urlpatterns += patterns('', (r'^media\/(?P<path>.*)$',
-                                 'django.views.static.serve',
-                                 {'document_root': settings.MEDIA_ROOT}),
-                           )
+from django.conf import settings
 
-urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG:
+    urlpatterns += patterns('', (r'^media\/(?P<path>.*)$',
+                                 'django.views.static.serve',
+                                 {'document_root': settings.STATIC_ROOT}),
+                           )
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    urlpatterns += staticfiles_urlpatterns()
+
