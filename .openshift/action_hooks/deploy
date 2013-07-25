@@ -6,6 +6,8 @@
 
 source $OPENSHIFT_HOMEDIR/python/virtenv/bin/activate
 
+export PYTHON_EGG_CACHE=${OPENSHIFT_HOME_DIR}python/virtenv/lib/python-2.7/site-packages
+
 if [ ! -f $OPENSHIFT_DATA_DIR/sqlite3.db ]
 then
     echo "Copying $OPENSHIFT_REPO_DIR/wsgi/openshift/sqlite3.db to $OPENSHIFT_DATA_DIR"
