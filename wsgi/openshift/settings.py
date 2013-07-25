@@ -9,7 +9,7 @@ if os.environ.has_key('OPENSHIFT_REPO_DIR'):
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 if ON_OPENSHIFT:
-    DEBUG = True
+    DEBUG = False
 else:
     DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -134,10 +134,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'openshift.urls'
 
 TEMPLATE_DIRS = (
-os.path.join(os.environ['OPENSHIFT_REPO_DIR'],'wsgi','openshift','templates')
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (
